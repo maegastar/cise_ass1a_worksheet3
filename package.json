@@ -4,7 +4,12 @@
   "description": "BookApp",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "build": "cd books && npm run build",
+    "install-client": "cd books && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "server": "nodemon app.js",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\"\"npm run start --prefix client\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
     "app": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
