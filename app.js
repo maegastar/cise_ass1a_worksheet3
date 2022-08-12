@@ -23,7 +23,7 @@ const path = require("path");
 app.use(express.static(path.resolve(__dirname, "./books/build")));
 app.get("*", function (request, response) {
     response.sendFile(path.resolve(__dirname, "./books/build", "index.html"));
-
+});
 // use Routes
 app.use('/api/books', books);
 
