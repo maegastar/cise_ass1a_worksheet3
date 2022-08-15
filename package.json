@@ -6,7 +6,7 @@
   "scripts": {
     "build": "cd books && npm run build",
     "install-client": "cd books && npm install",
-    "heroku-postbuild": "install concurrently && cd books && npm install && npm run build",
+    "heroku-postbuild": "npm run install-client && cd books && npm install && npm run build",
     "server": "nodemon app.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\"\"npm run start --prefix books\"",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix books\"",
