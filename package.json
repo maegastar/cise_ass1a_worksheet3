@@ -6,10 +6,10 @@
   "scripts": {
     "build": "cd books && npm run build",
     "install-client": "cd books && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "heroku-postbuild": "install concurrently && cd books && npm install && npm run build",
     "server": "nodemon app.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\"\"npm run start --prefix client\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\"\"npm run start --prefix books\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix books\"",
     "app": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +26,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
+    "concurrently": "^7.3.0",
     "config": "^3.3.7",
     "cors": "^2.8.5",
     "express": "^4.18.1",
