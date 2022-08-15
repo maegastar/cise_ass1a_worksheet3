@@ -10,7 +10,7 @@
     "server": "nodemon app.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\"\"npm run start --prefix books\"",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix books\"",
-    "app": "nodemon app.js",
+    "app": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
