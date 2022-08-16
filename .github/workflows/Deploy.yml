@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: maegastar/cise_ass1a_worksheet3@version 1 # This is the action
+        with:
+          heroku_api_key: "30e01477-26d7-4c96-ad7b-4110c8358487"
+          heroku_app_name: "maega-book"
+          heroku_email: "maegastar@gmail.com"
+          appdir: "routes/api" # <- This will point to the api folder in your project
+          procfile: "web:npm start"
